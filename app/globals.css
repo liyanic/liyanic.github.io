@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "MinecraftFont";
+  src: url("/Blockwerk-Variable.woff2") format("woff2");
+  font-weight: 200;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --font-sans: "MinecraftFont", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-bg: #161616;
+  --color-surface: #26282b;
+  --color-surface-active: #3c3d43;
+  --color-surface-control: #2f3033;
+  --color-surface-button: #1e1f20;
+  --color-surface-sunken: #1f1f1f;
+  --color-border: #262626;
+  --color-divider: #35373a;
+  --color-text: #f0f0f0;
+  --color-text-secondary: #a0a0a8;
+  --color-text-dim: #858585;
+  --color-accent: #0a84ff;
+  --color-on-accent: #ffffff;
+
+  --color-discord: #5865f2;
+  --color-discord-hover: #4752c4;
+
+  --color-tooltip: #100010;
+  --color-tooltip-border: #3a148f;
+
+  --color-rarity-rare: #4da3ff;
+  --color-rarity-epic: #6293be;
+  --color-rarity-legendary: #ba9915;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+}
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+a {
+  -webkit-user-drag: none;
 }
