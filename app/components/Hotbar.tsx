@@ -36,8 +36,8 @@ export function Hotbar({
             onClick={() => onSelect(i)}
             onMouseEnter={() => onSelect(i)}
             onFocus={() => onSelect(i)}
-            className={`${slotBase} cursor-pointer p-0 hover:bg-surface-control focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-              isSelected ? "bg-surface outline-3 -outline-offset-1 outline-accent" : ""
+            className={`${slotBase} outline-transparent cursor-pointer p-0 hover:bg-surface-control focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:!outline-accent ${
+              isSelected ? "bg-surface outline-3 -outline-offset-1 !outline-accent" : ""
             }`}
           >
             <img src={project.icon} alt="" className="size-[62%] [image-rendering:pixelated]" />
