@@ -112,8 +112,6 @@ export default function PlayerPreview({uuid, autoRotate = true, rotation = 0, pi
         if (!loaded || !island) return;
         const {lib, viewer} = loaded;
         const wrapper = viewer.playerWrapper;
-        let cancelled = false;
-        let created: ReturnType<SkinView3d["createIsland"]> | null = null;
         let raf = 0;
 
         const top = nameTag ? 22 : 16;
@@ -134,20 +132,14 @@ export default function PlayerPreview({uuid, autoRotate = true, rotation = 0, pi
             raf = requestAnimationFrame(tick);
         };
 
-        window.electron.invoke<BlockTextures | null>("get-block-textures").catch(() => null).then(textures => {
-            if (cancelled) return;
-            created = lib.createIsland(textures);
-            wrapper.add(created.island);
-            raf = requestAnimationFrame(tick);
-        });
+        const created = lib.createIsland(null);
+        wrapper.add(created.island);
+        raf = requestAnimationFrame(tick);
 
         return () => {
-            cancelled = true;
             cancelAnimationFrame(raf);
-            if (created) {
-                wrapper.remove(created.island);
-                created.dispose();
-            }
+            wrapper.remove(created.island);
+            created.dispose();
             wrapper.position.y = 0;
             viewer.zoom = DEFAULT_ZOOM;
         };

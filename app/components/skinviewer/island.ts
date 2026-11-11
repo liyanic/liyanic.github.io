@@ -1,5 +1,10 @@
-import type {BlockTextures} from "../../../electron/models.ts";
 import {BoxGeometry, CanvasTexture, Color, Group, Mesh, MeshStandardMaterial, NearestFilter, SRGBColorSpace, Texture, TextureLoader} from "three";
+
+export interface BlockTextures {
+    dirt: string;
+    grassTop: string;
+    grassSide: string;
+}
 
 const BLOCK = 16;
 const GRASS_TINT = new Color("#91bd59");

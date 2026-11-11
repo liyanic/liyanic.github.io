@@ -33,7 +33,6 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { FullScreenQuad } from "three/examples/jsm/postprocessing/Pass.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader.js";
@@ -733,7 +732,7 @@ export class SkinViewer {
 		this.resetCape();
 		this.resetEars();
 		this.background = null;
-		(this.fxaaPass.fsQuad as FullScreenQuad).dispose();
+		this.fxaaPass.dispose();
 	}
 
 	get disposed(): boolean {
