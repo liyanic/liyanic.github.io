@@ -36,7 +36,7 @@ export const projects: Project[] = [
     {
         name: "Simple Render Engine",
         rarity: "RARE",
-        language: "[Language]",
+        language: "Java & Rust",
         description: "Render your html pages using java inside of Minecraft or other games",
         url: "https://simple-client.com",
         icon: "/engine.svg",
